@@ -31,4 +31,5 @@ Route::get('/items/create', 'ItemController@create')->name('item_create');
 Route::post('/items/add', 'ItemController@add')->name('item_add');
 Route::get('/items/delete', 'ItemController@delete')->name('item_delete');
 Route::get('/items/update/{id}', 'ItemController@edit');
+Route::get('/items/delete/{id}', 'ItemController@delete');
 Route::post('/items/update', 'ItemController@update')->name('item_update');

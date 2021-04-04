@@ -14,9 +14,7 @@
                         </div>
                     @endif
 
-
-
-                            <table>
+                            <table width="100%">
                                 <tH>Items</tH>
                                 <TH>Content</TH>
                                 <TH></TH>
@@ -25,8 +23,8 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->content }}</td>
-                                    <td><a href="item/update/{{ $item->id }}">update</a></td>
-                                    <td><a href="{{ route('item_delete') }}">delete</a></td>
+                                    <td><a href="items/update/{{ $item->id }}">update</a></td>
+                                    <td><a href="items/delete/{{ $item->id }}">delete</a></td>
                                 </tr>
                                 @endforeach
                             </table>

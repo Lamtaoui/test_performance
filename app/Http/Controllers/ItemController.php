@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Item;
-use App\Todolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Todolist;
 
 class ItemController extends Controller
 {
@@ -27,21 +27,21 @@ class ItemController extends Controller
             'content' => $request->get('content'),
             'todolist_id'=> $todolist->id,
         ]);
-        return redirect()->route('home');
+        return redirect()->route('items');
     }
-    public function delete()
+    public function delete($id)
     {
-        Todolist::where('user_id',auth::id())->delete();
-        return redirect()->route('home');
+        Item::where('id',$id)->delete();
+        return redirect()->route('items');
     }
     public function edit($id)
     {
-        $todolist=Todolist::where('id',$id)->first();
-        return view('todolist/update')->with('todolist', $todolist);
+        $item=Item::where('id',$id)->first();
+        return view('item/update')->with('item', $item);
     }
     public function update(Request $request)
     {
-        Todolist::where('user_id',auth::id())->update(['name'=>$request->get('name')]);
-        return redirect()->route('home');
+        Item::where('id',$request->get('id'))->update(['name'=>$request->get('name'),'content'=>$request->get('content')]);
+        return redirect()->route('items');
     }
 }

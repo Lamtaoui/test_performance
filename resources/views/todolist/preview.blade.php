@@ -16,7 +16,7 @@
                     @if (Empty($todoList))
                     <a href="{{ route('todolist_create') }}">Create List</a>
                         @else
-                            <table>
+                            <table width="100%">
                                 <tH>My todoList</tH>
                                 <TH></TH>
                                 <TH></TH>
