@@ -34,18 +34,26 @@ class TodolistController extends Controller
     {
         return view('todolist/create');
     }
+    public function is_valid(){
+        $todolist=Todolist::where('user_id',auth::id())->first();
+        if(!empty($todolist)){
+            return false;
+        }else{
+            return true;
+        }
+    }
     public function add(Request $request)
     {
-        $todolist=Todolist::where('user_id',auth::id())->first();
-        if(empty($todolist)){
+       $valid=$this->is_valid();
+        if($valid==false){
+            return redirect()->back() ->with('alert', 'you have already a todolist');
+        }
             Todolist::create([
                 'name' => $request->get('name'),
                 'user_id'=> auth::id(),
             ]);
             return redirect()->route('home');
-        }else{
-            return redirect()->back() ->with('alert', 'You already have a todolist');
-        }
+
 
     }
     public function delete()
