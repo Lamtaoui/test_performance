@@ -13,20 +13,21 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if (Empty($todoList))
-                    <a href="{{ route('todolist_create') }}">Create List</a>
-                        @else
+
+
                             <table width="100%">
                                 <tH>My todoList</tH>
                                 <TH></TH>
                                 <TH></TH>
-                                <tr>
-                                    <td><a href="{{ route('items') }}">{{ $todoList->name }}</a></td>
-                                    <td><a href="todolist/update/{{ $todoList->id }}">update</a></td>
-                                    <td><a href="{{ route('todolist_delete') }}">delete</a></td>
-                                </tr>
+                                @foreach($todoLists as $todolist)
+                                    <tr>
+                                        <td><a href="{{ route('items') }}">{{ $todolist->name }}</a></td>
+                                        <td><a href="todolist/update/{{ $todolist->id }}">update</a></td>
+                                        <td><a href="{{ route('todolist_delete') }}">delete</a></td>
+                                    </tr>@endforeach
                             </table>
-                        @endif
+                        <a href="{{ route('todolist_create') }}">Create List</a>
+
                 </div>
             </div>
         </div>

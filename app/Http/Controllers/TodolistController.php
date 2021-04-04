@@ -27,8 +27,8 @@ class TodolistController extends Controller
      */
     public function index()
     {
-        $todolist=Todolist::where('user_id',auth::id())->first();
-        return view('todolist/preview')->with('todoList', $todolist);
+        $todolists=Todolist::where('user_id',auth::id())->get();
+        return view('todolist/preview')->with('todoLists', $todolists);
     }
     public function create()
     {
@@ -36,11 +36,17 @@ class TodolistController extends Controller
     }
     public function add(Request $request)
     {
-        Todolist::create([
-            'name' => $request->get('name'),
-            'user_id'=> auth::id(),
-        ]);
-        return redirect()->route('home');
+        $todolist=Todolist::where('user_id',auth::id())->first();
+        if(empty($todolist)){
+            Todolist::create([
+                'name' => $request->get('name'),
+                'user_id'=> auth::id(),
+            ]);
+            return redirect()->route('home');
+        }else{
+            return redirect()->back() ->with('alert', 'You already have a todolist');
+        }
+
     }
     public function delete()
     {

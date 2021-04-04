@@ -15,8 +15,8 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',1000)->unique();
-            $table->string('content',1000);
+            $table->string('name')->unique();
+            $table->string('content');
             $table->unsignedBigInteger('todolist_id');
             $table->foreign('todolist_id')->references('id')->on('todo_lists');
             $table->timestamps();
