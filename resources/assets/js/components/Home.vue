@@ -1,7 +1,6 @@
 <template>
-<h1>Home</h1>
   <div>
-    <p>Welcome to the TodoList</p>
+    <h1>Home</h1>
   </div>
 </template>
 
