@@ -34,7 +34,8 @@ class JurryController extends Controller
     public function index()
     {
         $jurries = DB::table('jurry')->get();
-        return response()->json($jurries, 200);
+        //return response()->json($jurries, 200);
+        return view('apijurry');
     }
     public function create()
     {

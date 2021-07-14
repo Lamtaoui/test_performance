@@ -80,7 +80,6 @@
 
             <div id="app">
                 <p>Welcome to the Todolist</p>
-                <Example></Example>
                 <Home></Home>
             </div>
 
