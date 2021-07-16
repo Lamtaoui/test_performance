@@ -22,35 +22,28 @@
             height: 100vh;
             margin: 0;
         }
-
         .full-height {
             height: 100vh;
         }
-
         .flex-center {
             align-items: center;
             display: flex;
             justify-content: center;
         }
-
         .position-ref {
             position: relative;
         }
-
         .top-right {
             position: absolute;
             right: 10px;
             top: 18px;
         }
-
         .content {
             text-align: center;
         }
-
         .title {
             font-size: 84px;
         }
-
         .links > a {
             color: #636b6f;
             padding: 0 25px;
@@ -60,7 +53,6 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-
         .m-b-md {
             margin-bottom: 30px;
         }
@@ -69,21 +61,22 @@
 
 <body>
 
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @if (Auth::check())
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                @endif
-            </div>
-        @endif
+<div class="flex-center position-ref full-height">
+    @if (Route::has('login'))
+        <div class="top-right links">
+            @if (Auth::check())
+                <a href="{{ url('/home') }}">Home</a>
+            @else
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+            @endif
+        </div>
+    @endif
 
 
-        <div id="jurries">
-            <table  class="table table-striped table-bordered" border="1px solid black">
+    <div id="jurries">
+        <div class="col-md-8 col-md-offset-2 flex-center">
+            <table  class="table table-striped table-bordered table-responsive" border="1px solid black">
                 <thead>
                 <tr>
                     <td>Aap</td>
@@ -118,6 +111,8 @@
         </div>
 
     </div>
+
+</div>
 
 
 <script src="{{ asset('js/app.js') }}" ></script>

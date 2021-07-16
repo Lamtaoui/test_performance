@@ -11,17 +11,3 @@ const app = new Vue({
     el: '#app'
 });
 
-const tab = new Vue({
-    el: '#jurries',
-    data: {jurries:[]},
-    created: function() {
-        let vm = this;
-        fetch("api/jurries")
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                vm.jurries = data;
-            });
-    }
-})

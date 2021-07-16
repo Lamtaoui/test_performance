@@ -1,23 +1,34 @@
 <template>
   <div>
-    <h1>Jurries</h1>
-    <div>
-      <ol>
-        <li v-for="jurry in jurries" :key="jurry.aap">
-          {{jurries.nom}} , {{jurries.prenom}}
-        </li>
-      </ol>
-    </div>
+    <table class="table-bordered table-condensed table-responsive">
+      <thead>
+      <tr>
+        <td>Aap</td>
+        <td>Role</td>
+        <td>Idref</td>
+        <td>Orcid</td>
+        <td>Prenom</td>
+        <td>Nom</td>
+        <td>Genre</td>
+        <td>Iso_country</td>
+        <td>Pays</td>
+        <td>Code Affiliation</td>
+        <td>Affiliation</td>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-export default {
-name: "Jurry"
-}
-props: {
-  jurries: Array
-}
+
+  export default {
+    mounted() {
+      console.log('Component mounted.')
+    }
+  }
 </script>
 
 <style scoped>
