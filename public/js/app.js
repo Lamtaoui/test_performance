@@ -1114,7 +1114,7 @@ var tab = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         fetch("api/jurries").then(function (response) {
             return response.json();
         }).then(function (data) {
-            vm.users = data;
+            vm.jurries = data;
         });
     }
 });
@@ -45747,7 +45747,7 @@ exports = module.exports = __webpack_require__(43)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45758,9 +45758,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
 //
 //
 //
@@ -45794,26 +45791,12 @@ var render = function() {
     _c(
       "ol",
       _vm._l(_vm.jurries, function(jurry) {
-        return _c("li", { key: jurry.id }, [
+        return _c("li", { key: jurry.aap }, [
           _vm._v(
             "\n      " +
-              _vm._s(_vm.jurries.aap) +
-              " , " +
-              _vm._s(_vm.jurries.idref) +
-              ",\n      " +
-              _vm._s(_vm.jurries.orcid) +
+              _vm._s(_vm.jurries.nom) +
               " , " +
               _vm._s(_vm.jurries.prenom) +
-              "," +
-              _vm._s(_vm.jurries.genre) +
-              "\n      " +
-              _vm._s(_vm.jurries.iso_country) +
-              ", " +
-              _vm._s(_vm.jurries.pays) +
-              ", " +
-              _vm._s(_vm.jurries.code_affiliation) +
-              ",\n      " +
-              _vm._s(_vm.jurries.affiliation) +
               "\n    "
           )
         ])

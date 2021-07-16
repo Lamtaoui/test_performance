@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Jurry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Todolist;
@@ -34,8 +35,9 @@ class JurryController extends Controller
     public function index()
     {
         $jurries = DB::table('jurry')->get();
+        return view('apijurry',compact('jurries'));
         //return response()->json($jurries, 200);
-        return view('apijurry');
+
     }
     public function create()
     {

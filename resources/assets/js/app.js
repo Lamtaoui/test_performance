@@ -15,13 +15,13 @@ const tab = new Vue({
     el: '#jurries',
     data: {jurries:[]},
     created: function() {
-        var vm = this;
+        let vm = this;
         fetch("api/jurries")
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-                vm.users = data;
+                vm.jurries = data;
             });
     }
 })
