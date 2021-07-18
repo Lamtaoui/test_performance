@@ -19,6 +19,7 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env', '.env');"
     - name: Install Dependencies
+      working-directory: "./test_performance"
       run: composer update || composer install
     - name: Generate key
       run: php artisan key:generate
