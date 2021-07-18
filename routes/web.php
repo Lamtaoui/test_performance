@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
-Route::get('/home', 'TodoListController@index')->name('home');
+Route::get('/home', 'JurryController@index')->name('home');
+
 
 Route::get('/todolist/create', 'TodolistController@create')->name('todolist_create');
 Route::post('/todolist/add', 'TodolistController@add')->name('todolist_add');
