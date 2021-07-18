@@ -19,7 +19,7 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env', '.env');"
     - name: Install Dependencies
-      working-directory: "./test_performance"
+      working-directory: "test_performance"
       run: composer update || composer install
     - name: Generate key
       run: php artisan key:generate
@@ -36,7 +36,8 @@ jobs:
 
     steps:
     - name: Execute tests units via PHPUnit
-      run: php vendor/bin/phpunit tests/Unit
+      working-directory: "test_performance"
+      run: vendor/bin/phpunit
 
   k6_test:
     name: k6 test run
