@@ -8,8 +8,9 @@ export let options = {
         { duration: '5s', target: 0 }, // ramp-down to 0 users
     ],
     thresholds: {
-        http_req_duration: ['p(99)<1500'], // 99% of requests must complete below 1.5s
-        'logged in successfully': ['p(99)<1500'], // 99% of requests must complete below 1.5s
+        http_req_duration: ['p(90)<1000', 'p(99.9) < 2000'], // 90% of requests must complete below 1s and 99% finish below 2s
+        'logged in successfully': ['p(99)<1000'], // 99% of requests must complete below 1s
+        http_req_failed: ['rate<0.01']   // http errors should be less than 1%
     },
 };
 

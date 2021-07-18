@@ -35,10 +35,7 @@ jobs:
 
     steps:
     - name: Execute tests units via PHPUnit
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+      run: php vendor/bin/phpunit tests/Unit
 
   k6_test:
     name: k6 test run
@@ -75,7 +72,7 @@ jobs:
         uses: jakepartusch/psi-action@v1.2
         id: psi
         with:
-          url: "http://127.0.0.1:8000"
+          url: "http://localhost:8000"
           threshold: 70
           strategy: desktop
           key: no
