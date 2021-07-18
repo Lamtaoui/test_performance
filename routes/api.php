@@ -17,4 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/jurries', 'JurryController@index');
+Route::get('/jurries', 'JurryController@getAll');
+Route::get('/jurries/{id}', 'JurryController@getWithLimit');
+Route::get('/expert', 'JurryController@lentFunction');
+Route::post('/create', 'JurryController@store');
+Route::delete('/delete/{id}','JurryController@destroy');
