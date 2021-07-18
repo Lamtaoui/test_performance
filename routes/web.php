@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+
+Route::get('/jurries', 'JurryController@index');
 
 Route::get('/home', 'TodoListController@index')->name('home');
 
