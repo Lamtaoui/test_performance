@@ -15,25 +15,25 @@ export default function () {
     let responses = http.batch([
         [
             'GET',
-            `${BASE_URL}/jurries/1/`,
+            `${BASE_URL}/api/jurries/1/`,
             null,
             { tags: { name: 'Jurries' } },
         ],
         [
             'GET',
-            `${BASE_URL}/jurries/2/`,
+            `${BASE_URL}/api/jurries/2/`,
             null,
             { tags: { name: 'Jurries' } },
         ],
         [
             'GET',
-            `${BASE_URL}/jurries/3/`,
+            `${BASE_URL}/api/jurries/3/`,
             null,
             { tags: { name: 'Jurries' } },
         ],
         [
             'GET',
-            `${BASE_URL}/jurries/4/`,
+            `${BASE_URL}/api/jurries/4/`,
             null,
             { tags: { name: 'Jurries' } },
         ],

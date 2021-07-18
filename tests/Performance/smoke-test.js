@@ -31,7 +31,7 @@ export default () => {
         },
     };
 
-    let myObjects = http.get(`${BASE_URL}/jurries`, authHeaders).json();
+    let myObjects = http.get(`${BASE_URL}/api/jurries`, authHeaders).json();
     check(myObjects, { 'retrieved jurries': (obj) => obj.length > 0 });
 
     sleep(1);
