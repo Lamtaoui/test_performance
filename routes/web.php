@@ -18,9 +18,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/jurries', 'JurryController@index');
+Route::get('/home', 'JurryController@index')->name('home');
 
-Route::get('/home', 'TodoListController@index')->name('home');
 
 Route::get('/todolist/create', 'TodolistController@create')->name('todolist_create');
 Route::post('/todolist/add', 'TodolistController@add')->name('todolist_add');
