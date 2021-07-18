@@ -2,9 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   laravel-tests:
@@ -19,7 +19,7 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env', '.env');"
     - name: Install Dependencies
-      run: composer install
+      run: composer update || composer install
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
@@ -35,6 +35,12 @@ jobs:
 
     steps:
     - name: Execute tests units via PHPUnit
+<<<<<<< HEAD
+=======
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+>>>>>>> be4d1a743692713a7b9441b1116f5c051753996f
       run: php vendor/bin/phpunit tests/Unit
 
   k6_test:
@@ -44,7 +50,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
+        
+      - name: Install Docker image
+        run: docker pull loadimpact/k6
 
       - name: K6 Simple test
         run: docker run -i loadimpact/k6 run - < tests/Performance/simple-test.js
