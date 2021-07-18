@@ -35,12 +35,6 @@ jobs:
 
     steps:
     - name: Execute tests units via PHPUnit
-<<<<<<< HEAD
-=======
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
->>>>>>> be4d1a743692713a7b9441b1116f5c051753996f
       run: php vendor/bin/phpunit tests/Unit
 
   k6_test:
